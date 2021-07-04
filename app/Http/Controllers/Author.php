@@ -36,9 +36,15 @@ class Author extends Controller
            $name = strtoupper(array_shift($authors));
       
          } 
+         if(count($authors)  === 2){
+          $firstname = strtolower(array_shift($authors));
+          $lastname = strtoupper(array_pop($authors));
+          $name =  $lastname . ' , '. ucfirst($firstname); 
+     
+        } 
 
          
-         if(count($authors) >= 2){
+         if(count($authors) >= 3){
           
             $lastname = strtoupper(array_pop($authors));
             $middlename  = strtoupper(end($authors)) ;
@@ -56,16 +62,16 @@ class Author extends Controller
               $familyname = $middlename  .' '. $lastname . ' , '. ucfirst($firstname); 
               
             }else{
-
-              $familyname =  $lastname . ' , '. ucfirst($firstname); 
-
+              //dd($name, $familyname);
+              $name =  $lastname . ' , '. ucfirst($firstname); 
+              
             }
-            //dd($name2, $name1);
+            
             
          }
                  
-   
-         //  dd($name2, $name1);
+         //dd($name, $familyname);
+ 
          $names = [$name , $familyname ,];         
          return view('index' , compact('names'));
               
