@@ -14,8 +14,8 @@ class Author extends Controller
 
     public function Author(){
         
-         $name1 = '';
-         $name2 = '';
+         $name = '';
+         $familyname = '';
          $author = $_POST['name'];
          $authors = explode(" " ,  $author);
          
@@ -33,32 +33,32 @@ class Author extends Controller
 
          if(count($authors)  === 1){
            
-           $name1 = strtoupper(array_shift($authors));
+           $name = strtoupper(array_shift($authors));
       
          } 
 
          
          if(count($authors) >= 2){
           
-            $ultimo = strtoupper(array_pop($authors));
-            $penultimo = strtoupper(end($authors)) ;
-            $primeiro = strtolower(array_shift($authors));
+            $lastname = strtoupper(array_pop($authors));
+            $middlename  = strtoupper(end($authors)) ;
+            $firstname = strtolower(array_shift($authors));
             
-            if($ultimo  === "FILHO"     || 
-               $ultimo  === "FILHA"     || 
-               $ultimo  === "NETO"      || 
-               $ultimo  === "NETA"      || 
-               $ultimo  === "SOBRINHO"  || 
-               $ultimo  === "SOBRINHA"  || 
-               $ultimo  === "JUNIOR")
+            if($lastname === "FILHO"      || 
+               $lastname  === "FILHA"     || 
+               $lastname  === "NETO"      || 
+               $lastname  === "NETA"      || 
+               $lastname  === "SOBRINHO"  || 
+               $lastname === "SOBRINHA"   || 
+               $lastname  === "JUNIOR")
             {
               
-              $name2 = $penultimo .' '. $ultimo . ' , '. ucfirst($primeiro); 
+              $familyname = $middlename  .' '. $lastname . ' , '. ucfirst($firstname); 
               
             }else{
 
-              $name2 =  $ultimo . ' , '. ucfirst($primeiro); 
-              
+              $familyname =  $lastname . ' , '. ucfirst($firstname); 
+
             }
             //dd($name2, $name1);
             
@@ -66,7 +66,7 @@ class Author extends Controller
                  
    
          //  dd($name2, $name1);
-         $names = [$name1 , $name2 ,];         
+         $names = [$name , $familyname ,];         
          return view('index' , compact('names'));
               
 
