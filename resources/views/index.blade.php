@@ -21,10 +21,11 @@
            </fieldset>
         </form>
         </div>
-         @foreach($names as $name)
-            <h1> {{$name}} </h1>  
-         @endforeach
-         
+       
+               @foreach($names as $name)
+                  <h1> {{ $name }} </h1>  
+               @endforeach
+             
         </div>
     </div>
 
