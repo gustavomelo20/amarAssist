@@ -2,13 +2,14 @@
 
 namespace App\Http\Controllers;
 
-class Author extends Controller
+class Desafio extends Controller
 {
 
     public function Index(){
         
          $names = []; 
-         return view('index', ['names' => $names]);
+         $phone = '';
+         return view('index', ['names' => $names, 'phone' => $phone]);
          
          /*
           Estou pasando  $names dentro dessa rota:get , para evitar undefined, 
@@ -91,14 +92,56 @@ class Author extends Controller
             
          }
                  
-         //dd($name, $familyname);
- 
-         $names = [$name , $familyname];   
-              
-         return view('index', compact('names'));
-              
+              //dd($name, $familyname);
+      
+              $names = [$name , $familyname];   
+                    
+              return view('index', compact('names'));
+                    
 
     }
+
+
+          public function FindPhone(){
+        
+                $strs = $_POST['phone'];
+                $str = str_split ($strs);
+                $phone = [];
+
+                for($i = 0 ; $i < count($str); $i++){
+                    
+                    if($str[$i] == '1')
+                            $phone[] = "1" ;
+                            if($str[$i] == '0')
+                            $phone[] ="0";
+                            if($str[$i] == '-')
+                            $phone[] = "-";
+                            if($str[$i] == '\n')
+                            $phone[] = "\n";
+                            if($str[$i] == 'A'||$str[$i] == 'B' ||$str[$i] =='C')
+                            $phone[] = "2";
+                            if($str[$i] == 'D'||$str[$i] == 'E'||$str[$i] == 'F')
+                            $phone[] = "3";
+                            if($str[$i] == 'G'||$str[$i] == 'H'||$str[$i] == 'I')
+                            $phone[] = "4";
+                            if($str[$i] == 'J'||$str[$i] == 'K'||$str[$i] == 'L')
+                            $phone[] = "5";
+                            if($str[$i] == 'M'||$str[$i] == 'N'||$str[$i] == 'O')
+                            $phone[] = "6";
+                            if($str[$i] == 'P'||$str[$i] == 'Q'||$str[$i] == 'R'||$str[$i] == 'S')
+                            $phone[] =  "7";
+                            if($str[$i] == 'V'||$str[$i] == 'T'||$str[$i] == 'U')
+                            $phone[] = "8";
+                            if($str[$i] == 'W'||$str[$i] == 'X'||$str[$i] == 'Y'||$str[$i]== 'Z')
+                            $phone[] = "9";
+                               
+                            
+                            
+                }
+
+                //print_r($phone);
+                return view('phone', compact('phone'));
+          }
 
 
 

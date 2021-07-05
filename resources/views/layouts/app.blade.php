@@ -59,6 +59,50 @@
             </div>
             </div>
         </div>
+
+        <div class="accordion" id="accordionExample">
+        <div class="accordion-item">
+            <h2 class="accordion-header" id="headingOne">
+            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                Teste #2
+            </button>
+            </h2>
+            <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+            <div class="accordion-body">
+             <p>
+                
+             Em alguns lugares é comum lembrar um número do telefone associando seus dígitos a letras. Dessa maneira a expressão MY LOVE significa 69 5683. Claro que existem alguns problemas, uma vez que alguns números de telefone não formam uma palavra ou uma frase e os dígitos 1 e 0 não estão associados a nenhuma letra. Sua tarefa é ler uma expressão e encontrar o número de telefone correspondente baseado na tabela abaixo. Uma expressão é composta por letras maiúsculas (A­Z), hífens (­) e os números 1 e 0.<br>
+
+                  A, B, C -> 2<br>
+
+                  D, E, F -> 3<br>
+
+                  G, H, I -> 4<br>
+
+                  J, K, L -> 2<br>
+
+                  M, N, O -> 6<br>
+
+                  P, Q, R, S -> 7<br>
+
+                  T, U, V -> 8<br>
+
+                  W, X, Y, Z -> 9<br>
+
+                  Entrada: A entrada consiste de um conjunto de expressões. Cada expressão está sozinha em uma linha e possui C caracteres, onde 1 ≤ C ≤ 30. A entrada é terminada por fim de arquivo (EOF).<br>
+
+                  Saída: Para cada expressão você deve imprimir o número de telefone correspondente.<br>
+
+                  Exemplo:<br>
+
+                  1-HOME-SWEET-HOME<br>
+
+                  1-4663-79338-4663<br>
+                            
+            </p>
+            </div>
+            </div>
+        </div>
         
         
         </div>

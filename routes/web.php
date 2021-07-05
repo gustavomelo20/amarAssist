@@ -1,7 +1,7 @@
 <?php
 
 use App\Http\Controllers\{
-    Author, 
+    Desafio, 
    };
 use Illuminate\Support\Facades\Route;
 
@@ -16,5 +16,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/',  [Author::class, 'Index'])->name('index');
-Route::post('/',  [Author::class, 'Author'])->name('form-index');
+Route::get('/',   [Desafio::class, 'Index'])->name('index');
+Route::post('/',  [Desafio::class, 'Author'])->name('form-index');
+Route::post('/phone',  [Desafio::class, 'FindPhone'])->name('phone-index');
