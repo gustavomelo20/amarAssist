@@ -2,28 +2,24 @@
 
 namespace App\Http\Controllers;
 
+use PhpParser\Node\Expr\FuncCall;
+
 class Desafio extends Controller
 {
 
     public function Index(){
         
-         $names = []; 
-         $phone = '';
-         return view('index', ['names' => $names, 'phone' => $phone]);
+   
+         return view('index');
          
-         /*
-          Estou pasando  $names dentro dessa rota:get , para evitar undefined, 
-          request & response são feitos dentro da mesma view.
-        */
 
-       
     }
 
     public function Author(){
         
          $name = '';
          $familyname = '';
-         $author = $_POST['name'];
+         $author = $_POST['nome'];
          $authors = explode(" " ,  $author);
          
          /*
@@ -94,9 +90,10 @@ class Desafio extends Controller
                  
               //dd($name, $familyname);
       
-              $names = [$name , $familyname];   
-                    
-              return view('index', compact('names'));
+              $names = [$name , $familyname];
+
+              $strNames = implode(" " , $names );
+              return view('author', compact('strNames'));
                     
 
     }
@@ -104,7 +101,7 @@ class Desafio extends Controller
 
           public function FindPhone(){
         
-                $strs = $_POST['phone'];
+                $strs = strtoupper($_POST['phone']);
                 $str = str_split ($strs);
                 $phone = [];
 
@@ -116,8 +113,6 @@ class Desafio extends Controller
                             $phone[] ="0";
                             if($str[$i] == '-')
                             $phone[] = "-";
-                            if($str[$i] == '\n')
-                            $phone[] = "\n";
                             if($str[$i] == 'A'||$str[$i] == 'B' ||$str[$i] =='C')
                             $phone[] = "2";
                             if($str[$i] == 'D'||$str[$i] == 'E'||$str[$i] == 'F')
@@ -140,8 +135,18 @@ class Desafio extends Controller
                 }
 
                 //print_r($phone);
-                return view('phone', compact('phone'));
+                $strPhone = implode(" " , $phone);
+
+                return view('phone', compact('strPhone'));
           }
+              public function phone(){
+                $strPhone  = '';
+                return view('phone', compact('strPhone'));
+              }
+              public function AuthorIndex(){
+                $strNames = '';
+                return view('author', compact('strNames'));
+              }
 
 
 

@@ -17,5 +17,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/',   [Desafio::class, 'Index'])->name('index');
-Route::post('/',  [Desafio::class, 'Author'])->name('form-index');
-Route::post('/phone',  [Desafio::class, 'FindPhone'])->name('phone-index');
+Route::post('/author',  [Desafio::class, 'Author'])->name('author-post');
+Route::get('/author',  [Desafio::class, 'AuthorIndex'])->name('author-index');
+Route::post('/phone',  [Desafio::class, 'FindPhone'])->name('phone-post');
+Route::get('/phone',  [Desafio::class, 'Phone'])->name('phone-index');
